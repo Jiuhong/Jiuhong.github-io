@@ -450,11 +450,15 @@
 <li>集中式：单人干活，协作性差、存在主次之分。</li>
 <li>分布式：多人干活，协作行好、不存在主次之分。</li>
 </ul>
-<h1 id="2、-仓库的创建"><a href="#2、-仓库的创建" class="headerlink" title="2、 仓库的创建"></a>2、 仓库的创建</h1><p>初始化一个Git仓库，使用git init命令。</p>
+<h1 id="2、-仓库的创建"><a href="#2、-仓库的创建" class="headerlink" title="2、 仓库的创建"></a>2、 仓库的创建</h1><blockquote>
+<p>初始化一个Git仓库，使用git init命令。</p>
 <p>添加文件到Git仓库，分两步：</p>
-<pre><code>使用命令git add &lt;file&gt;，注意，可反复多次使用，添加多个文件；
-使用命令git commit -m &lt;message&gt;，完成。
-</code></pre><p>演示：</p>
+<ul>
+<li>使用命令git add <file>，注意，可反复多次使用，添加多个文件；</file></li>
+<li>使用命令git commit -m <message>，完成。</message></li>
+</ul>
+</blockquote>
+<p>演示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp$ cd hello_git/</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git init</span><br><span class="line">已初始化空的 Git 仓库于 /home/minjiuhong/tmp/hello_git/.git/</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo touch file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git add file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo comm</span><br><span class="line">comm                      command                   command_not_found_handle</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git commit -m &quot;create the first file.&quot; </span><br><span class="line">[master （根提交） c197b52] create the first file.</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 file.txt</span><br></pre></td></tr></table></figure>
 <h1 id="3、文件修改"><a href="#3、文件修改" class="headerlink" title="3、文件修改"></a>3、文件修改</h1><blockquote>
 <p>要随时掌握工作区的状态，使用git status命令。</p>
@@ -889,7 +893,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
