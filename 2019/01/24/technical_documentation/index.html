@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="yolo_v1代码复现原理解释（简单）网络结构基础网络：  该网络结构借鉴了GoogLeNet，24个卷积层，2个全连接层。  不同之处：  使用1x1 reduction layers紧跟 3×3 convolutional layers 取代Goolenet的 inception modules    检测原理对检测图片通过网络进行运算，最终会生产（7, 7, 30）的数据输出, 如下图所示：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yolo_v1代码复现">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/technical_documentation/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="yolo_v1代码复现原理解释（简单）网络结构基础网络：  该网络结构借鉴了GoogLeNet，24个卷积层，2个全连接层。  不同之处：  使用1x1 reduction layers紧跟 3×3 convolutional layers 取代Goolenet的 inception modules    检测原理对检测图片通过网络进行运算，最终会生产（7, 7, 30）的数据输出, 如下图所示：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/24/technical_documentation/yolo_v1_image/loyo_v1_net.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/24/technical_documentation/yolo_v1_image/yolo_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/24/technical_documentation/yolo_v1_image/yolo_2.png">
+<meta property="og:updated_time" content="2019-01-25T09:10:46.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="yolo_v1代码复现">
+<meta name="twitter:description" content="yolo_v1代码复现原理解释（简单）网络结构基础网络：  该网络结构借鉴了GoogLeNet，24个卷积层，2个全连接层。  不同之处：  使用1x1 reduction layers紧跟 3×3 convolutional layers 取代Goolenet的 inception modules    检测原理对检测图片通过网络进行运算，最终会生产（7, 7, 30）的数据输出, 如下图所示：">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/24/technical_documentation/yolo_v1_image/loyo_v1_net.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/24/technical_documentation/">
 
 
 
 
 
-  <title>Hexo</title>
+  <title>yolo_v1代码复现 | Hexo</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -234,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/24/technical_documentation/" itemprop="url">yolo_v1代码复现</a></h1>
+          <h1 class="post-title" itemprop="name headline">yolo_v1代码复现</h1>
         
 
         <div class="post-meta">
@@ -318,9 +323,7 @@
       
 
       
-        
-          
-            <h1 id="yolo-v1代码复现"><a href="#yolo-v1代码复现" class="headerlink" title="yolo_v1代码复现"></a>yolo_v1代码复现</h1><h2 id="原理解释（简单）"><a href="#原理解释（简单）" class="headerlink" title="原理解释（简单）"></a>原理解释（简单）</h2><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p><strong>基础网络：</strong></p>
+        <h1 id="yolo-v1代码复现"><a href="#yolo-v1代码复现" class="headerlink" title="yolo_v1代码复现"></a>yolo_v1代码复现</h1><h2 id="原理解释（简单）"><a href="#原理解释（简单）" class="headerlink" title="原理解释（简单）"></a>原理解释（简单）</h2><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p><strong>基础网络：</strong></p>
 <ul>
 <li>该网络结构借鉴了GoogLeNet，24个卷积层，2个全连接层。</li>
 </ul>
@@ -380,8 +383,6 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">def get(self):</span><br><span class="line">    images = np.zeros((self.batch_size, self.image_size, self.image_size, 3))</span><br><span class="line">    labels = np.zeros((self.batch_size, self.cell_size, self.cell_size, 25))</span><br><span class="line">    count = 0</span><br><span class="line">    while count &lt; self.batch_size:</span><br><span class="line">        imname = self.gt_labels[self.cursor][&apos;imname&apos;]</span><br><span class="line">        flipped = self.gt_labels[self.cursor][&apos;flipped&apos;]</span><br><span class="line">        images[count, :, :, :] = self.image_read(imname, flipped)</span><br><span class="line">        labels[count, :, :, :] = self.gt_labels[self.cursor][&apos;label&apos;]</span><br><span class="line">        count += 1</span><br><span class="line">        self.cursor += 1</span><br><span class="line">        if self.cursor &gt;= len(self.gt_labels):</span><br><span class="line">            np.random.shuffle(self.gt_labels)</span><br><span class="line">            self.cursor = 0</span><br><span class="line">            self.epoch += 1</span><br><span class="line">    return images, labels</span><br><span class="line"></span><br><span class="line">def image_read(self, imname, flipped=False):</span><br><span class="line">    image = cv.imread(imname)</span><br><span class="line">    image = cv.resize(image, (self.image_size, self.image_size))</span><br><span class="line">    image = cv.cvtColor(image, cv.COLOR_BGR2RGB).astype(np.float32)</span><br><span class="line">    image = (image / 255.0) * 2.0 - 1.0</span><br><span class="line">    if flipped:</span><br><span class="line">        image = image[:, ::-1, :]</span><br><span class="line">    return image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def prepare(self):</span><br><span class="line">    gt_labels = self.load_labels()</span><br><span class="line">    if self.flipped:</span><br><span class="line">        print(&apos;Appending horizontally-flipped training examples ...&apos;)</span><br><span class="line">        gt_labels_cp = copy.deepcopy(gt_labels)</span><br><span class="line">        for idx in range(len(gt_labels_cp)):</span><br><span class="line">            gt_labels_cp[idx][&apos;flipped&apos;] = True</span><br><span class="line">            gt_labels_cp[idx][&apos;label&apos;] = gt_labels_cp[idx][&apos;label&apos;][:, ::-1, :]</span><br><span class="line">            for i in range(self.cell_size):</span><br><span class="line">                for j in range(self.cell_size):</span><br><span class="line">                    if gt_labels_cp[idx][&apos;label&apos;][i, j, 0] == 1:</span><br><span class="line">                        gt_labels_cp[idx][&apos;label&apos;][i, j, 1] = \</span><br><span class="line">                            self.image_size - 1 - \</span><br><span class="line">                            gt_labels_cp[idx][&apos;label&apos;][i, j, 1]</span><br><span class="line">        gt_labels += gt_labels_cp</span><br><span class="line">    np.random.shuffle(gt_labels)</span><br><span class="line">    self.gt_labels = gt_labels</span><br><span class="line">    return gt_labels</span><br><span class="line"></span><br><span class="line">def load_labels(self):</span><br><span class="line">    cache_file = os.path.join(</span><br><span class="line">        self.cache_path, &apos;pascal_&apos; + self.phase + &apos;_gt_labels.pkl&apos;)</span><br><span class="line">    # check cache_file if exist, then load the file, or create</span><br><span class="line">    if os.path.isfile(cache_file) and not self.rebuild:</span><br><span class="line">        print(&apos;Loading gt_labels from: &apos; + cache_file)</span><br><span class="line">        with open(cache_file, &apos;rb&apos;) as f:</span><br><span class="line">            gt_labels = pickle.load(f)</span><br><span class="line">        return gt_labels</span><br><span class="line"></span><br><span class="line">    print(&apos;Processing gt_labels from: &apos; + self.data_path)</span><br><span class="line"></span><br><span class="line">    if not os.path.exists(self.cache_path)</span><br><span class="line">        os.makedirs(self.cache_path)</span><br><span class="line"></span><br><span class="line">    if self.phase == &apos;train&apos;:</span><br><span class="line">        txtname = os.path.join(</span><br><span class="line">            self.data_path, &apos;ImageSets&apos;, &apos;Main&apos;, &apos;trainval.txt&apos;)</span><br><span class="line">    else:</span><br><span class="line">        txtname = os.path.join(</span><br><span class="line">            self.data_path, &apos;ImageSets&apos;, &apos;Main&apos;, &apos;test.txt&apos;)</span><br><span class="line">    with open(txtname, &apos;r&apos;) as f:</span><br><span class="line">        self.image_index = [x.strip() for x in f.readlines()]</span><br><span class="line"></span><br><span class="line">    gt_labels = []</span><br><span class="line">    for index in self.image_index:</span><br><span class="line">        label, num = self.load_pascal_annotation(index)</span><br><span class="line">        if num == 0:</span><br><span class="line">            continue</span><br><span class="line">        imname = os.path.join(self.data_path, &apos;JPEGImages&apos;, index + &apos;.jpg&apos;)</span><br><span class="line">        gt_labels.append(&#123;&apos;imname&apos;: imname,</span><br><span class="line">                          &apos;label&apos;: label,</span><br><span class="line">                          &apos;flipped&apos;: False&#125;)</span><br><span class="line">    print(&apos;Saving gt_labels to:&apos; + cache_file)</span><br><span class="line">    with open(cache_file, &apos;wb&apos;) as f:</span><br><span class="line">        pickle.dump(gt_labels, f)</span><br><span class="line">    return gt_labels</span><br><span class="line"></span><br><span class="line">def load_pascal_annotation(self, index):</span><br><span class="line">    imname = os.path.join(self.data_path, &apos;JPEGImages&apos;, index + &apos;.jpg&apos;)</span><br><span class="line">    im = cv.imread(imname)</span><br><span class="line">    h_ratio = 1.0 * self.image_size / im.shape[0]</span><br><span class="line">    w_ratio = 1.0 * self.image_size / im.shape[1]</span><br><span class="line"></span><br><span class="line">    label = np.zeros((self.cell_size, self.cell_size, 25))</span><br><span class="line">    filename = os.path.join(self.data_path, &apos;Annotations&apos;, index + &apos;.xml&apos;)</span><br><span class="line">    tree = ET.parse(filename)</span><br><span class="line">    objs = tree.find(&apos;object&apos;)</span><br><span class="line"></span><br><span class="line">    for obj in objs:</span><br><span class="line">        bbox = obj.find(&apos;bndbox&apos;)</span><br><span class="line">        # Make pixel indexes 0-based</span><br><span class="line">        x1 = max(min((float(bbox.find(&apos;xmin&apos;).text) - 1) * w_ratio, self.image_size - 1), 0)</span><br><span class="line">        y1 = max(min((float(bbox.find(&apos;ymin&apos;).text) - 1) * h_ratio, self.image_size - 1), 0)</span><br><span class="line">        x2 = max(min((float(bbox.find(&apos;xmax&apos;).text) - 1) * w_ratio, self.image_size - 1), 0)</span><br><span class="line">        y2 = max(min((float(bbox.find(&apos;ymax&apos;).text) - 1) * h_ratio, self.image_size - 1), 0)</span><br><span class="line">        cls_ind = self.class_to_ind[obj.find(&apos;name&apos;).text.lower().strip()]</span><br><span class="line">        boxes = [(x2 + x1) / 2.0, (y2 + y1) / 2.0, x2 - x1, y2 - y1]</span><br><span class="line">        # find the cell of boxes</span><br><span class="line">        x_ind = int(boxes[0] * self.cell_size / self.image_size)</span><br><span class="line">        y_ind = int(boxes[1] * self.cell_size / self.image_size)</span><br><span class="line">        if label[y_ind, x_ind, 0] = 1:</span><br><span class="line">            continue</span><br><span class="line">        label[y_ind, x_ind, 0] = 1</span><br><span class="line">        label[y_ind, x_ind, 1:5] = boxes</span><br><span class="line">        label[y_ind, x_ind, 5 + cls_ind] = 1</span><br><span class="line"></span><br><span class="line">    return label, len(objs)</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -398,140 +399,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/参考资料总汇/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Seek For The Road">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201509/03/20150903094844_WYjsH.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/21/参考资料总汇/" itemprop="url">参考资料总汇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T00:00:00+08:00">
-                2019-01-21
-              </time>
+              <a href="/2019/01/21/参考资料总汇/" rel="next" title="参考资料总汇">
+                <i class="fa fa-chevron-left"></i> 参考资料总汇
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="1、blog维护"><a href="#1、blog维护" class="headerlink" title="1、blog维护"></a>1、blog维护</h1><p><img src="http://www.51pptmoban.com/d/file/2014/01/23/f03220aa5cc066bea0d4d2d355365f18.jpg" alt="寻路"></p>
-<ul>
-<li><p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">网站搭建</a></p>
-</li>
-<li><p><a href="https://www.jianshu.com/p/b03a8d7b1719" target="_blank" rel="noopener">Markdown语法</a></p>
-</li>
-<li><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">廖雪峰git教程</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -541,365 +430,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/git使用/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Seek For The Road">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201509/03/20150903094844_WYjsH.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/21/git使用/" itemprop="url">git使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T00:00:00+08:00">
-                2019-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="分布式和集中式版本控制系统的区别"><a href="#分布式和集中式版本控制系统的区别" class="headerlink" title="分布式和集中式版本控制系统的区别"></a>分布式和集中式版本控制系统的区别</h1><ul>
-<li>集中式：单人干活，协作性差、存在主次之分。</li>
-<li>分布式：多人干活，协作行好、不存在主次之分。</li>
-</ul>
-<h1 id="仓库的创建"><a href="#仓库的创建" class="headerlink" title="仓库的创建"></a>仓库的创建</h1><blockquote>
-<p>初始化一个Git仓库，使用git init命令。</p>
-<p>添加文件到Git仓库，分两步：</p>
-<ul>
-<li>使用命令git add <file>，注意，可反复多次使用，添加多个文件；</file></li>
-<li>使用命令git commit -m <message>，完成。</message></li>
-</ul>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp$ cd hello_git/</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git init</span><br><span class="line">已初始化空的 Git 仓库于 /home/minjiuhong/tmp/hello_git/.git/</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo touch file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git add file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo comm</span><br><span class="line">comm                      command                   command_not_found_handle</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git commit -m &quot;create the first file.&quot; </span><br><span class="line">[master （根提交） c197b52] create the first file.</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 file.txt</span><br></pre></td></tr></table></figure>
-<h1 id="文件修改"><a href="#文件修改" class="headerlink" title="文件修改"></a>文件修改</h1><blockquote>
-<p>要随时掌握工作区的状态，使用git status命令。</p>
-<p>如果git status告诉你有文件被修改过，用git diff可以查看修改内容。</p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git status </span><br><span class="line">位于分支 master</span><br><span class="line">尚未暂存以备提交的变更：</span><br><span class="line">  （使用 &quot;git add &lt;文件&gt;...&quot; 更新要提交的内容）</span><br><span class="line">  （使用 &quot;git checkout -- &lt;文件&gt;...&quot; 丢弃工作区的改动）</span><br><span class="line"></span><br><span class="line">	修改：     file.txt</span><br><span class="line"></span><br><span class="line">修改尚未加入提交（使用 &quot;git add&quot; 和/或 &quot;git commit -a&quot;）</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git diff</span><br><span class="line">diff --git a/file.txt b/file.txt</span><br><span class="line">index e69de29..d1c6469 100644</span><br><span class="line">--- a/file.txt</span><br><span class="line">+++ b/file.txt</span><br><span class="line">@@ -0,0 +1 @@</span><br><span class="line">+hello git!</span><br></pre></td></tr></table></figure>
-<h1 id="版本退回"><a href="#版本退回" class="headerlink" title="版本退回"></a>版本退回</h1><blockquote>
-<p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间转换，使用命令git reset –&gt;hard commit_id。</p>
-<ul>
-<li><p>使用git log可以查看提交历史，以便确定要回退到哪个版本。</p>
-</li>
-<li><p>使用git reflog查看命令历史，以便确定要回到未来的哪个版本</p>
-</li>
-</ul>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git log</span><br><span class="line">commit c197b52ecafeae1fcef70ca1c837236a6b20695b (HEAD -&gt; master)</span><br><span class="line">Author: Min Jiuhong &lt;358280953@qq.com&gt;</span><br><span class="line">Date:   Mon Jan 21 10:14:51 2019 +0800</span><br><span class="line"></span><br><span class="line">    create the first file.</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git reflog</span><br><span class="line">c197b52 (HEAD -&gt; master) HEAD@&#123;0&#125;: commit (initial): create the first file.</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git reset --hard c197b52</span><br><span class="line">HEAD 现在位于 c197b52 create the first file.</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$</span><br></pre></td></tr></table></figure>
-<h1 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h1><blockquote>
-<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file。</p>
-<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两&gt;步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。</file></p>
-<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不&gt;过前提是没有推送到远程库。</p>
-</blockquote>
-<p>演示1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ cat file.txt </span><br><span class="line">bfore</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo vim file.txt </span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ cat file.txt </span><br><span class="line">after</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git checkout -- file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ cat file.txt </span><br><span class="line">bfore</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$</span><br></pre></td></tr></table></figure>
-<p>演示2：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ cat file.txt </span><br><span class="line">bfore</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo vim file.txt </span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo add file.txt </span><br><span class="line">sudo: add：找不到命令</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git add file.txt </span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git reset HEAD file.txt</span><br><span class="line">重置后取消暂存的变更：</span><br><span class="line">M	file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git checkout -- file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ cat file.txt </span><br><span class="line">bfore</span><br></pre></td></tr></table></figure>
-<h1 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h1><blockquote>
-<p>命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误<br>删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ ls</span><br><span class="line">file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo rm file.txt </span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git rm file.txt</span><br><span class="line">rm &apos;file.txt&apos;</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git status </span><br><span class="line">位于分支 master</span><br><span class="line">要提交的变更：</span><br><span class="line">  （使用 &quot;git reset HEAD &lt;文件&gt;...&quot; 以取消暂存）</span><br><span class="line"></span><br><span class="line">	删除：     file.txt</span><br><span class="line"></span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$</span><br></pre></td></tr></table></figure>
-<h1 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h1><blockquote>
-<p>要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；</p>
-<p>关联后，使用命令git push -u origin master第一次推送master分支的所有内容；</p>
-<p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修<br>改</p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git remote add origin git@github.com:Jiuhong/hello_git.git</span><br><span class="line">fatal: 远程 origin 已经存在。</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git push -u origin master </span><br><span class="line">git@github.com: Permission denied (publickey).</span><br><span class="line">fatal: 无法读取远程仓库。</span><br><span class="line"></span><br><span class="line">请确认您有正确的访问权限并且仓库存在。</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ su</span><br><span class="line">密码： </span><br><span class="line">root@Ubuntu18:/home/minjiuhong/tmp/hello_git# git push -u origin master </span><br><span class="line">对象计数中: 6, 完成.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">压缩对象中: 100% (2/2), 完成.</span><br><span class="line">写入对象中: 100% (6/6), 434 bytes | 434.00 KiB/s, 完成.</span><br><span class="line">Total 6 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:Jiuhong/hello_git.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br><span class="line">分支 &apos;master&apos; 设置为跟踪来自 &apos;origin&apos; 的远程分支 &apos;master&apos;。</span><br></pre></td></tr></table></figure>
-<h1 id="分支的使用"><a href="#分支的使用" class="headerlink" title="分支的使用"></a>分支的使用</h1><ul>
-<li><p>查看分支：git branch</p>
-</li>
-<li><p>创建分支：git branch <name></name></p>
-</li>
-<li><p>切换分支：git checkout <name></name></p>
-</li>
-<li><p>创建+切换分支：git checkout -b <name></name></p>
-</li>
-<li><p>合并某分支到当前分支：git merge <name></name></p>
-</li>
-<li><p>删除分支：git branch -d <name></name></p>
-</li>
-</ul>
-<blockquote>
-<p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
-<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
-<p>用git log –graph命令可以看到分支合并图。</p>
-<p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾&gt;经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch</span><br><span class="line">* master</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git checkout -b dev</span><br><span class="line">切换到一个新分支 &apos;dev&apos;</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ ls</span><br><span class="line">file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo touch file_dev.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git checkout master </span><br><span class="line">切换到分支 &apos;master&apos;</span><br><span class="line">您的分支与上游分支 &apos;origin/master&apos; 一致。</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git merge dev</span><br><span class="line">已经是最新的。</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ ls</span><br><span class="line">file_dev.txt  file.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch</span><br><span class="line">  dev</span><br><span class="line">* master</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch -d dev </span><br><span class="line">error: cannot lock ref &apos;refs/heads/dev&apos;: 不能创建 &apos;/home/minjiuhong/tmp/hello_git/.git/refs/heads/dev.lock&apos;：权限不够</span><br><span class="line">error: 无法删除分支 &apos;dev&apos;</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git branch -d dev </span><br><span class="line">已删除分支 dev（曾为 f2b9abb）。</span><br></pre></td></tr></table></figure>
-<h1 id="BUG分支"><a href="#BUG分支" class="headerlink" title="BUG分支"></a>BUG分支</h1><blockquote>
-<p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。</p>
-<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</name></p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git add file_dev.txt</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git stash</span><br><span class="line">保存工作目录和索引状态 WIP on master: f2b9abb change before!</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git branch dev</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git branch -D dev</span><br><span class="line">已删除分支 dev（曾为 f2b9abb）。</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git status </span><br><span class="line">位于分支 master</span><br><span class="line">您的分支与上游分支 &apos;origin/master&apos; 一致。</span><br><span class="line"></span><br><span class="line">无文件要提交，干净的工作区</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git stash pop </span><br><span class="line">位于分支 master</span><br><span class="line">您的分支与上游分支 &apos;origin/master&apos; 一致。</span><br><span class="line"></span><br><span class="line">要提交的变更：</span><br><span class="line">  （使用 &quot;git reset HEAD &lt;文件&gt;...&quot; 以取消暂存）</span><br><span class="line"></span><br><span class="line">	新文件：   file_dev.txt</span><br><span class="line"></span><br><span class="line">丢弃了 refs/stash@&#123;0&#125; (0d227fe45ca8e45ff039c64ac8c13ae84120e364)</span><br></pre></td></tr></table></figure>
-<h1 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h1><blockquote>
-<p>查看远程库信息，使用git remote -v；</p>
-<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
-<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull&gt;抓取远程的&gt;新提交；</p>
-<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
-<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git checkout -b dev1 origin/dev </span><br><span class="line">分支 &apos;dev1&apos; 设置为跟踪来自 &apos;origin&apos; 的远程分支 &apos;dev&apos;。</span><br><span class="line">切换到一个新分支 &apos;dev1&apos;</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ git branch</span><br><span class="line">  dev</span><br><span class="line">* dev1</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
-<h1 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h1><blockquote>
-<p>命令git tag <tagname>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</tagname></p>
-<p>命令git tag -a <tagname> -m “blablabla…”可以指定标签信息；</tagname></p>
-<p>命令git tag可以查看所有标签。</p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git tag  -a v1.1 f2b9abb -m &quot;tag2&quot;</span><br><span class="line">minjiuhong@Ubuntu18:~/tmp/hello_git$ sudo git reflog </span><br><span class="line">0384812 (HEAD -&gt; dev1, tag: v1.0, origin/dev, dev) HEAD@&#123;0&#125;: checkout: moving from dev to dev1</span><br><span class="line">0384812 (HEAD -&gt; dev1, tag: v1.0, origin/dev, dev) HEAD@&#123;1&#125;: commit: create two files.</span><br><span class="line">f2b9abb (tag: v1.1, origin/master, master) HEAD@&#123;2&#125;: checkout: moving from master to dev</span><br><span class="line">f2b9abb (tag: v1.1, origin/master, master) HEAD@&#123;3&#125;: reset: moving to HEAD</span><br><span class="line">f2b9abb (tag: v1.1, origin/master, master) HEAD@&#123;4&#125;: checkout: moving from dev to master</span><br><span class="line">f2b9abb (tag: v1.1, origin/master, master) HEAD@&#123;5&#125;: checkout: moving from master to dev</span><br><span class="line">f2b9abb (tag: v1.1, origin/master, master) HEAD@&#123;6&#125;: commit: change before!</span><br><span class="line">c197b52 HEAD@&#123;7&#125;: reset: moving to c197b52</span><br><span class="line">c197b52 HEAD@&#123;8&#125;: commit (initial): create the first file.</span><br></pre></td></tr></table></figure>
-<h1 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h1><blockquote>
-<p>命令git push origin <tagname>可以推送一个本地标签；</tagname></p>
-<p>命令git push origin –tags可以推送全部未推送过的本地标签；</p>
-<p>命令git tag -d <tagname>可以删除一个本地标签；</tagname></p>
-<p>命令git push origin :refs/tags/<tagname>可以删除一个远程标签。</tagname></p>
-</blockquote>
-<p>演示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@Ubuntu18:/home/minjiuhong/tmp/hello_git# git push origin v1.0</span><br><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:Jiuhong/hello_git.git</span><br><span class="line"> * [new tag]         v1.0 -&gt; v1.0</span><br><span class="line">root@Ubuntu18:/home/minjiuhong/tmp/hello_git# git push origin --tags</span><br><span class="line">对象计数中: 1, 完成.</span><br><span class="line">写入对象中: 100% (1/1), 156 bytes | 156.00 KiB/s, 完成.</span><br><span class="line">Total 1 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:Jiuhong/hello_git.git</span><br><span class="line"> * [new tag]         v1.1 -&gt; v1.1</span><br><span class="line">root@Ubuntu18:/home/minjiuhong/tmp/hello_git# git tag -d v1.0</span><br><span class="line">已删除标签 &apos;v1.0&apos;（曾为 0384812）</span><br><span class="line">root@Ubuntu18:/home/minjiuhong/tmp/hello_git# git push origin :refs/tags/v1.0</span><br><span class="line">To github.com:Jiuhong/hello_git.git</span><br><span class="line"> - [deleted]         v1.0</span><br></pre></td></tr></table></figure>
-<p><em>参考文献:</em></p>
-<ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">廖雪峰git教程</a></li>
-</ul>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Seek For The Road">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201509/03/20150903094844_WYjsH.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/18/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T17:33:20+08:00">
-                2019-01-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -907,6 +442,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -927,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -981,6 +529,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#yolo-v1代码复现"><span class="nav-number">1.</span> <span class="nav-text">yolo_v1代码复现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理解释（简单）"><span class="nav-number">1.1.</span> <span class="nav-text">原理解释（简单）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测原理"><span class="nav-number">1.1.2.</span> <span class="nav-text">检测原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出的数据意义"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输出的数据意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#损失值"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">损失值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构构架"><span class="nav-number">1.2.1.</span> <span class="nav-text">网络结构构架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失值计算"><span class="nav-number">1.2.2.</span> <span class="nav-text">损失值计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据处理"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据处理</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1121,6 +685,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
