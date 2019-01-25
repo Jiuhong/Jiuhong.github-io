@@ -328,9 +328,9 @@
 <ul>
 <li>使用1x1 reduction layers紧跟 3×3 convolutional layers 取代Goolenet的 inception modules </li>
 </ul>
-<p><img src="./yolo_v1_image/loyo_v1_net.png" alt="YoLo v1 net"></p>
+<p><img src="../images/loyo_v1_net.png" alt="YoLo v1 net"></p>
 <h3 id="检测原理"><a href="#检测原理" class="headerlink" title="检测原理"></a>检测原理</h3><p>对检测图片通过网络进行运算，最终会生产（7, 7, 30）的数据输出, 如下图所示：</p>
-<p><img src="./yolo_v1_image/yolo_1.png" alt="Yolo 1"></p>
+<p><img src="../images/yolo_1.png" alt="Yolo 1"></p>
 <h4 id="输出的数据意义"><a href="#输出的数据意义" class="headerlink" title="输出的数据意义"></a>输出的数据意义</h4><ul>
 <li>前两个数值表示最终将图片划分的单元数7x7</li>
 <li>最后一个数值30是由20+5x2来计算出的，20代表分类数目，5分别代表（置信度， x， y， w， h），2代表每个单元检测的box数目。</li>
@@ -342,7 +342,7 @@
 <li>置信度预测损失（不含bojiect的box）</li>
 <li>分类预测损失 </li>
 </ul>
-<p>计算公式如下：<br><img src="./yolo_v1_image/yolo_2.png" alt="yolo 2"></p>
+<p>计算公式如下：<br><img src="../yolo_2.png" alt="yolo 2"></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="网络结构构架"><a href="#网络结构构架" class="headerlink" title="网络结构构架"></a>网络结构构架</h3><p>与论文中不同之处：</p>
 <ul>
 <li>添加了pad函数使初始图像扩充到454x454，可能是为了完整保留图像信息</li>
